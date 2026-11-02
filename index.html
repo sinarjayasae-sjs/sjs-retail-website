@@ -1,0 +1,958 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SJS RETAIL - Penyedia kebutuhan pupuk untuk perkebunan dan pelanggan retail. Hubungi tim penjualan untuk informasi produk dan permintaan penawaran.">
+  <title>SJS RETAIL | Fertilizer Supply</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #174d36;
+      --green-dark: #103b2a;
+      --green-light: #eaf2eb;
+      --lime: #c4db65;
+      --ink: #17231c;
+      --muted: #68756d;
+      --cream: #f7f8f3;
+      --white: #ffffff;
+      --line: #e3e9e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    .topbar {
+      background: var(--green-dark);
+      color: #e8f0e9;
+      font-size: 12px;
+      padding: 9px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      border-radius: 12px;
+      background: var(--green);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -1px;
+    }
+
+    .brand-name {
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: .5px;
+      line-height: 1.2;
+    }
+
+    .brand-caption {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4d5b52;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 7px;
+      padding: 13px 20px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--green);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.6);
+      color: white;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--green);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(196,219,101,.17), transparent 28%),
+        linear-gradient(115deg, #103b2a 0%, #174d36 58%, #286347 100%);
+      color: white;
+      padding: 105px 0 100px;
+    }
+
+    .hero::after {
+      content: "SJS";
+      position: absolute;
+      right: -25px;
+      bottom: -125px;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(230px, 35vw, 470px);
+      font-weight: 800;
+      line-height: 1;
+      color: rgba(255,255,255,.035);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--lime);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 23px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 27px;
+      height: 2px;
+      background: var(--lime);
+    }
+
+    h1, h2, h3 {
+      font-family: "Manrope", sans-serif;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5.5vw, 66px);
+      line-height: 1.12;
+      letter-spacing: -2.5px;
+      max-width: 780px;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 span {
+      color: var(--lime);
+    }
+
+    .hero-description {
+      color: rgba(255,255,255,.78);
+      max-width: 590px;
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 54px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      max-width: 620px;
+    }
+
+    .intro {
+      padding: 85px 0;
+      background: var(--cream);
+    }
+
+    .section-label {
+      color: #62804d;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+
+    .section-title {
+      font-size: clamp(29px, 4vw, 43px);
+      letter-spacing: -1.5px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .intro-aside {
+      border-left: 3px solid var(--lime);
+      padding: 10px 0 10px 25px;
+    }
+
+    .intro-aside strong {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      margin-bottom: 9px;
+    }
+
+    .intro-aside p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .market {
+      padding: 85px 0;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .market-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 27px;
+      background: white;
+      min-height: 170px;
+      transition: .2s ease;
+    }
+
+    .market-card:hover {
+      border-color: #9eb68d;
+      transform: translateY(-4px);
+    }
+
+    .market-number {
+      color: #79965d;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+    }
+
+    .market-card h3 {
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .market-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .catalogue {
+      background: var(--cream);
+      padding: 88px 0;
+    }
+
+    .catalogue-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .catalogue-heading .section-description {
+      max-width: 530px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 25px;
+      min-height: 225px;
+      transition: .2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: #9eb68d;
+      box-shadow: 0 12px 30px rgba(20,55,35,.06);
+    }
+
+    .product-label {
+      font-size: 10px;
+      font-weight: 800;
+      color: #6f8d50;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 17px;
+    }
+
+    .product-card h3 {
+      font-size: 19px;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .product-link {
+      margin-top: auto;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      background: none;
+      border: 0;
+      text-align: left;
+    }
+
+    .product-link:hover {
+      color: #719448;
+    }
+
+    .catalogue-note {
+      margin-top: 23px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .process {
+      padding: 85px 0;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 36px;
+    }
+
+    .process-item {
+      border-top: 2px solid var(--lime);
+      padding-top: 20px;
+    }
+
+    .process-item span {
+      color: #79965d;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .process-item h3 {
+      margin: 12px 0 8px;
+      font-size: 18px;
+    }
+
+    .process-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cta {
+      padding: 72px 0;
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .cta h2 {
+      font-size: clamp(27px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,.7);
+      font-size: 14px;
+      max-width: 590px;
+    }
+
+    footer {
+      background: #0b2b1e;
+      color: white;
+      padding: 42px 0 25px;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 35px;
+      flex-wrap: wrap;
+      padding-bottom: 30px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.65);
+      font-size: 12px;
+      margin-top: 12px;
+      max-width: 340px;
+    }
+
+    .footer-contact h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .footer-contact p,
+    .footer-contact a {
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding-top: 18px;
+      color: rgba(255,255,255,.5);
+      font-size: 11px;
+    }
+
+    .floating-wa {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 30;
+      border-radius: 50px;
+      padding: 14px 19px;
+      background: #16834d;
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 7px 24px rgba(0,0,0,.18);
+    }
+
+    .floating-wa:hover {
+      background: #116b3e;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .navbar {
+        min-height: 68px;
+      }
+
+      .hero {
+        padding: 78px 0;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .market-grid,
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .catalogue-heading {
+        display: block;
+      }
+
+      .catalogue-heading .section-description {
+        margin-top: 12px;
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topbar-inner {
+        justify-content: center;
+      }
+
+      .market-grid,
+      .product-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .intro,
+      .market,
+      .catalogue,
+      .process {
+        padding: 65px 0;
+      }
+
+      .floating-wa {
+        right: 13px;
+        bottom: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>SJS RETAIL — Marketing & Sales Channel</span>
+      <span>Sales Contact: 0812-3999-8129</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="brand">
+        <div class="brand-mark">SJS</div>
+        <div>
+          <div class="brand-name">SJS RETAIL</div>
+          <div class="brand-caption">Fertilizer Supply</div>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#about">Tentang Kami</a>
+        <a href="#market">Segmen Pasar</a>
+        <a href="#products">Produk</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+
+      <a class="btn btn-primary" href="#contact">Hubungi Kami</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Fertilizer Supply Partner</div>
+
+          <h1>
+            Supporting Agriculture.<br>
+            <span>Growing Together.</span>
+          </h1>
+
+          <p class="hero-description">
+            SJS RETAIL hadir sebagai kanal pemasaran dan penjualan
+            produk pupuk SINAR JAYA SAE untuk mendukung kebutuhan
+            perkebunan dan pelanggan retail.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" style="background:var(--lime);color:#173a27"
+               href="#products">Jelajahi Produk →</a>
+
+            <button class="btn btn-outline" onclick="requestQuote()">
+              Minta Penawaran
+            </button>
+          </div>
+
+          <div class="hero-note">
+            Bagian dari SINAR JAYA SAE — kanal pemasaran dan penjualan
+            untuk kebutuhan pupuk sektor perkebunan dan retail.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="about">
+      <div class="container intro-grid">
+        <div>
+          <div class="section-label">About SJS Retail</div>
+          <h2 class="section-title">
+            Menghubungkan Kebutuhan Pupuk dengan Solusi Pengadaan
+          </h2>
+          <p class="section-description">
+            SJS RETAIL merupakan kanal pemasaran dan penjualan
+            SINAR JAYA SAE yang berfokus pada penyediaan pilihan produk
+            pupuk untuk pelanggan perkebunan maupun retail.
+            Kami menyediakan akses informasi produk dan komunikasi
+            langsung dengan tim penjualan.
+          </p>
+        </div>
+
+        <div class="intro-aside">
+          <strong>One Channel. Multiple Agricultural Segments.</strong>
+          <p>
+            Melayani kebutuhan informasi dan permintaan penawaran
+            produk untuk berbagai segmen pertanian dan perkebunan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="market" id="market">
+      <div class="container">
+        <div class="section-label">Market Segments</div>
+        <h2 class="section-title">Mendukung Berbagai Segmen Pertanian</h2>
+        <p class="section-description">
+          SJS RETAIL menyediakan kanal informasi produk untuk
+          pelanggan dari berbagai sektor pertanian dan perkebunan.
+        </p>
+
+        <div class="market-grid">
+          <div class="market-card">
+            <div class="market-number">01 / MAIN SEGMENT</div>
+            <h3>Perkebunan Kelapa Sawit</h3>
+            <p>Kebutuhan pengadaan pupuk untuk perusahaan perkebunan dan petani sawit mandiri.</p>
+          </div>
+
+          <div class="market-card">
+            <div class="market-number">02 / AGRICULTURE</div>
+            <h3>Perkebunan Tebu</h3>
+            <p>Pilihan produk pupuk untuk kebutuhan sektor perkebunan tebu.</p>
+          </div>
+
+          <div class="market-card">
+            <div class="market-number">03 / AGRICULTURE</div>
+            <h3>Perkebunan Tembakau</h3>
+            <p>Kanal informasi produk untuk pelanggan di sektor perkebunan tembakau.</p>
+          </div>
+
+          <div class="market-card">
+            <div class="market-number">04 / AGRICULTURE</div>
+            <h3>Perkebunan Kopi</h3>
+            <p>Mendukung kebutuhan informasi dan pengadaan produk pupuk.</p>
+          </div>
+
+          <div class="market-card">
+            <div class="market-number">05 / AGRICULTURE</div>
+            <h3>Tanaman Pangan</h3>
+            <p>Segmen pelanggan untuk berbagai kebutuhan sektor tanaman pangan.</p>
+          </div>
+
+          <div class="market-card">
+            <div class="market-number">06 / RETAIL</div>
+            <h3>Pelanggan Retail</h3>
+            <p>Akses informasi produk dan komunikasi langsung dengan tim penjualan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogue" id="products">
+      <div class="container">
+        <div class="catalogue-heading">
+          <div>
+            <div class="section-label">Product Catalogue</div>
+            <h2 class="section-title">Pilihan Produk SJS RETAIL</h2>
+          </div>
+
+          <p class="section-description">
+            Jelajahi daftar produk dan hubungi tim penjualan
+            untuk memperoleh informasi lebih lanjut mengenai
+            spesifikasi, ketersediaan, dan penawaran.
+          </p>
+        </div>
+
+        <div class="product-grid">
+
+          <article class="product-card">
+            <div class="product-label">Product 01</div>
+            <h3>PHOSKA SJS</h3>
+            <p>Informasi produk dan kebutuhan pengadaan melalui tim penjualan SJS RETAIL.</p>
+            <button class="product-link" onclick="askProduct('PHOSKA SJS')">
+              Tanyakan Produk →
+            </button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-label">Product 02</div>
+            <h3>SP-36 SJS</h3>
+            <p>Informasi produk dan kebutuhan pengadaan melalui tim penjualan SJS RETAIL.</p>
+            <button class="product-link" onclick="askProduct('SP-36 SJS')">
+              Tanyakan Produk →
+            </button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-label">Product 03</div>
+            <h3>SJS MULTY BLANDING 12-12-28+TE</h3>
+            <p>Informasi produk dan kebutuhan pengadaan melalui tim penjualan SJS RETAIL.</p>
+            <button class="product-link" onclick="askProduct('SJS MULTY BLANDING 12-12-28+TE')">
+              Tanyakan Produk →
+            </button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-label">Product 04</div>
+            <h3>AGROPHOS 36</h3>
+            <p>Informasi produk dan kebutuhan pengadaan melalui tim penjualan SJS RETAIL.</p>
+            <button class="product-link" onclick="askProduct('AGROPHOS 36')">
+              Tanyakan Produk →
+            </button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-label">Product 05</div>
+            <h3>SAWIT MAS 13-6-27+TE</h3>
+            <p>Informasi produk dan kebutuhan pengadaan melalui tim penjualan SJS RETAIL.</p>
+            <button class="product-link" onclick="askProduct('SAWIT MAS 13-6-27+TE')">
+              Tanyakan Produk →
+            </button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-label">Product 06</div>
+            <h3>GOLDEN PREMIUM</h3>
+            <p>Informasi produk dan kebutuhan pengadaan melalui tim penjualan SJS RETAIL.</p>
+            <button class="product-link" onclick="askProduct('GOLDEN PREMIUM')">
+              Tanyakan Produk →
+            </button>
+          </article>
+
+        </div>
+
+        <p class="catalogue-note">
+          Catatan: Informasi spesifikasi, ketersediaan, dan penawaran
+          produk dapat dikonfirmasi langsung melalui tim penjualan.
+        </p>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <div class="section-label">How To Connect</div>
+        <h2 class="section-title">Mulai dari Kebutuhan Anda</h2>
+        <p class="section-description">
+          Hubungi tim SJS RETAIL untuk menyampaikan kebutuhan
+          produk dan permintaan penawaran.
+        </p>
+
+        <div class="process-grid">
+          <div class="process-item">
+            <span>STEP 01</span>
+            <h3>Pilih Produk</h3>
+            <p>Jelajahi katalog dan tentukan produk yang ingin Anda tanyakan.</p>
+          </div>
+
+          <div class="process-item">
+            <span>STEP 02</span>
+            <h3>Hubungi Tim Penjualan</h3>
+            <p>Sampaikan kebutuhan produk melalui WhatsApp SJS RETAIL.</p>
+          </div>
+
+          <div class="process-item">
+            <span>STEP 03</span>
+            <h3>Dapatkan Informasi</h3>
+            <p>Tim penjualan akan membantu menindaklanjuti pertanyaan dan permintaan penawaran Anda.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container cta-inner">
+        <div>
+          <div class="eyebrow">Let's Work Together</div>
+          <h2>Diskusikan Kebutuhan Pengadaan Anda.</h2>
+          <p>
+            Untuk informasi produk, ketersediaan, dan permintaan
+            penawaran, silakan hubungi tim penjualan SJS RETAIL.
+          </p>
+        </div>
+
+        <button class="btn btn-primary"
+          style="background:var(--lime);color:#173a27;white-space:nowrap"
+          onclick="contactSales()">
+          Hubungi Sales via WhatsApp →
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="brand-name">SJS RETAIL</div>
+          <p>
+            Marketing & Sales Channel of SINAR JAYA SAE.
+            Mendukung kebutuhan produk pupuk untuk sektor
+            perkebunan dan pelanggan retail.
+          </p>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Sales Contact</h3>
+          <p>WhatsApp: <a href="https://wa.me/6281239998129" target="_blank" rel="noopener noreferrer">0812-3999-8129</a></p>
+          <p style="margin-top:7px">SINAR JAYA SAE</p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> SJS RETAIL. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-wa"
+     href="https://wa.me/6281239998129?text=Halo%20Tim%20SJS%20RETAIL%2C%20saya%20ingin%20bertanya%20mengenai%20produk."
+     target="_blank"
+     rel="noopener noreferrer">
+    WhatsApp Sales
+  </a>
+
+  <script>
+    const SALES_NUMBER = "6281239998129";
+
+    function openWhatsApp(message) {
+      const url =
+        "https://wa.me/" +
+        SALES_NUMBER +
+        "?text=" +
+        encodeURIComponent(message);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    function askProduct(product) {
+      openWhatsApp(
+        "Halo Tim Penjualan SJS RETAIL, saya ingin menanyakan informasi mengenai produk " +
+        product +
+        ". Mohon informasi lebih lanjut mengenai spesifikasi dan ketersediaannya. Terima kasih."
+      );
+    }
+
+    function requestQuote() {
+      openWhatsApp(
+        "Halo Tim Penjualan SJS RETAIL, saya ingin meminta penawaran produk pupuk. Mohon informasi lebih lanjut mengenai pilihan produk, harga, dan ketersediaannya. Terima kasih."
+      );
+    }
+
+    function contactSales() {
+      openWhatsApp(
+        "Halo Tim Penjualan SJS RETAIL, saya ingin menghubungi tim penjualan untuk mendapatkan informasi lebih lanjut. Terima kasih."
+      );
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
